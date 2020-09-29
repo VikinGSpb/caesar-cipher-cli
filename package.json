@@ -1,0 +1,23 @@
+{
+  "name": "caesar-cipher-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VikinGSpb/caesar-cipher-cli.git"
+  },
+  "author": "VikinGSpb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VikinGSpb/caesar-cipher-cli/issues"
+  },
+  "homepage": "https://github.com/VikinGSpb/caesar-cipher-cli#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "minimist": "^1.2.5"
+  }
+}

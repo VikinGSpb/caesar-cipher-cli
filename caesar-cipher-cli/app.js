@@ -29,6 +29,9 @@ if (action && shift) {
             if (data) {
                 try {
                     const writeStream = fs.createWriteStream(outFile, {encoding: 'utf-8', flags: 'a+'});
+                    readStream.on('error', (err) => {
+                        console.error(chalk.red('wrong file name for output'));
+                    })
                     writeStream.write(code(action, shift, data));
                     writeStream.end();
                     process.stdin.pause();
@@ -45,8 +48,11 @@ if (action && shift) {
             readStream.on('data', (data) => {
                 process.stdout.write(code(action, shift, data));
             });
+            readStream.on('error', (err) => {
+                console.error(chalk.red('wrong file name for input'));
+            })
             readStream.read();
-        } catch(e) {
+        } catch {
             console.error(chalk.red('wrong file name for input'));
         }
     }
@@ -60,7 +66,7 @@ if (action && shift) {
                 writeStream.end();
             });
             readStream.read();
-        } catch(e) {
+        } catch {
             console.error(chalk.red('wrong file name for input or output'));
         }
     }
